@@ -1,0 +1,41 @@
+{%include 'essential/head.html' %}
+    <div class="main">
+        <div class="container">
+            <h1>TODO-LIST</h1>
+            <form method="post" class="fields">
+                {% csrf_token %}
+                {{ form.name }}
+                {{ form.deadline }}
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <form method="get">
+        <select name="filter" id="filter" onchange="this.form.submit()">
+            <option value="all" name="all"{% if filter == 'all' %} selected {% endif %}>All</option>
+            <option value="active" name="active"{% if filter == 'active' %} selected {% endif %}>Active</option>
+            <option value="completed" name="completed" {% if filter == 'completed' %} selected {% endif %}>completed</option>
+        </select>
+    </form>
+
+    <div class="tasks">
+        {% for task in tasks%}
+        <div class="task {{task.id}}">
+            <p class="name_task">{{task}} (<span>{{task.deadline}}</span>)</p>
+            <div class="checked">
+                <form method="post" action="{% url 'toggle' task.id %}">
+                    {% csrf_token %}
+                    <input type="checkbox" name="done{{ task.id }}" id="id_done_{{ task.id }}" onchange="this.form.submit()"{% if task.done %} checked {% endif %}>
+                </form>
+            </div>
+            <div class="modif">
+                <button><a href="{% url 'delete' task.id%}">Delete</a></button>
+            </div>    
+        </div>
+        {% empty %}
+        <div class="task empty">
+            <p>Aucune tache trouvée pour le moment</p>
+        </div>
+        {% endfor %}
+    </div>
+{%include 'essential/footer.html' %}

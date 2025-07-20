@@ -1,0 +1,9 @@
+@media screen and (max-width: 700px){
+    .tasks,select,.main,form {
+        width: 100%;
+    }
+    .fields {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}

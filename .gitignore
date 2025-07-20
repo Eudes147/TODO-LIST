@@ -1,0 +1,19 @@
+*.pyc
+README.md
+*.tmp
+# Ignorer tous les fichiers .log
+*.log
+
+# Ignorer le dossier build/
+build/
+
+# Ignorer les fichiers temporaires
+*.tmp
+*.swp
+
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Ignorer un fichier spécifique
+mon_secret.txt

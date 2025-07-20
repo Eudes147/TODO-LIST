@@ -1,0 +1,174 @@
+body{
+    --primary-color: #2c2828;
+    margin: 3rem auto;
+    background-color: var(--primary-color);
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .55rem;
+}
+a{
+    text-decoration: none;
+    transition: all 400ms ease-in;
+    color: inherit;
+}
+a:hover {
+    text-decoration:underline;
+}
+input{
+    outline: none;
+    border: none;
+    border-bottom: .2rem solid var(--primary-color);
+    padding: .5rem;
+    display: inline;
+    font-family: inherit;
+}
+.main{
+    background-color: #fff;
+    padding: 1rem;
+    width: 40rem;
+    color: var(--primary-color);
+    border-radius: .25rem;
+    transition: all .5s ease-in-out;
+}
+.main:hover{
+    box-shadow: 0px 4px 8px #c5c2c2;
+    animation: dandine .75s ease-in-out;
+}
+@keyframes dandine {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(-5deg);}
+    75% {transform: rotate(5deg);}
+    100% {transform: rotate(0deg);}
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: .5rem;
+}
+button{
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1em 1.5em;
+    border-radius: .45rem;
+    border: none;
+    transition: all .5s ease-in-out;
+}
+form button:hover {
+    background-color: lawngreen;
+}
+.task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    position: relative;
+    margin: 1rem;
+}
+.task:hover .name_task,
+.task:hover .checked,
+.task:hover .modif {
+    background-color: #4b4343;
+}
+.tasks{
+    border: 0.05px solid #fff;
+    border-radius: .25em;
+    width: 40rem;
+    padding: .5rem;
+}
+.task .name_task {
+    background-color: #201a1a;
+    flex: 5 0 0%;
+    transition: all .5s ease-in-out;
+    border-bottom-left-radius: .5rem;
+    border-top-left-radius: .5rem;
+    height: 100%;
+    margin: 0 !important;
+    padding: 1.5rem;
+    text-align: left;
+}
+.task .checked,
+.task .modif {
+    background-color: #201a1a;
+    flex: .25;
+    transition: all .5s ease-in-out;
+    margin: 0 !important;
+    padding: 1.5rem;
+    border-left: .1px solid #fff;
+}
+.task .checked input {
+    accent-color: var(--primary-color);
+}
+.task .modif {
+    border-bottom-right-radius: .5rem;
+    border-top-right-radius: .5rem;
+    padding: .80em;
+}
+.task .modif button{
+    transition: all .5s ease-in-out;
+}
+.task .modif button:hover {
+    cursor: pointer;
+    background-color: rgb(184, 49, 49);
+}
+.empty p {
+    animation: transite 500ms ease-in-out;
+    animation-iteration-count: 1;
+    transition: all 500ms;
+}
+@keyframes transite {
+    0% {transform: translateY(15px);
+        opacity: 0.25;
+    }
+    25% {transform: translateY(10px);
+        opacity: 0.50;
+    }
+    50% {transform: translateY(5px);
+        opacity: 0.75;
+    }
+    100% {transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.empty p:hover {
+    animation: bascule .5s ease-in-out;
+}
+
+@keyframes bascule {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(-5deg);}
+    75% {transform: rotate(5deg);}
+    100% {transform: rotate(0deg);}
+}
+select {
+    padding: 1rem;
+    width: 40rem;
+    outline: none;
+    display: block;
+    text-align: center;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transition: all 500ms;
+}
+select option {
+    transition: all 500ms;
+}
+select:hover,
+select:hover option {
+    background-color: rgba(186, 186, 218, 0.815);
+}
