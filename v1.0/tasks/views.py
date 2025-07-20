@@ -11,6 +11,7 @@ def index(request):
             return redirect('index')
     else:
         filter = request.GET.get("filter","all")
+        tasks = Task.objects.all()
         if filter == "all":
             tasks = Task.objects.all()
         elif filter == "active":
@@ -21,9 +22,7 @@ def index(request):
     context = {"form":form,"tasks": tasks,"filter":filter}
     return render(request,"index.html",context)
 
-def add(request):
-    new_task = Task.objects.create(name="Réviser",done=False)
-    return redirect("index")
+
 
 def toggle_done(request, id):
     if request.method == "POST":
@@ -36,6 +35,3 @@ def delete(request,id):
     task = Task.objects.get(pk=id)
     task.delete()
     return redirect("index")
-
-def filter(request):
-    pass

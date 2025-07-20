@@ -7,7 +7,7 @@ max_length = 15
 class Task(models.Model):
     name = models.CharField(max_length=max_length,unique=True,verbose_name="Nom")
     done = models.BooleanField(default=False,verbose_name="Fait")
-    deadline = models.DateField(default= timezone.now().date())
+    deadline = models.DateField(default= timezone.now)
 
     class Meta:
         verbose_name = "Tâche"
